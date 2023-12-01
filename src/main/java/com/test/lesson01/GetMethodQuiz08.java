@@ -38,11 +38,26 @@ public class GetMethodQuiz08 extends HttpServlet {
 		Iterator<String> iter = list.iterator();
 		while(iter.hasNext()) {
 			String line = iter.next();
+			
+//			// 검색
+//			if(line.contains(keyword)) {
+//				out.print(line + "<br>");
+//			}
+//			
+//			// 검색 + 키워드 볼드 방법1
+//			if(line.contains(keyword)) {
+//				String[] words = line.split(keyword);
+//				out.print(words[0] + "<b>" + keyword + "</b>" + words[1] + "<br>");
+//			}
+			
+			// 검색 + 키워드 볼드 방법2
 			if(line.contains(keyword)) {
-				String[] part = line.split(keyword);
-				out.print(part[0] + "<b>" + keyword + "</b>" + part[1] + "<br>");
+				line = line.replace(keyword, "<b>" + keyword + "</b>");
+				out.print(line + "<br>");
 			}
 		}
 		out.print("</body></html>");
 	}
 }
+
+// 테스트 코드 추가
