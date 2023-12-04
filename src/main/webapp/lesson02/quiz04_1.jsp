@@ -21,22 +21,18 @@
 		<h4><%= cm %>cm</h4>
 		<hr>
 		<%
-			double result = 0;
+			double div = 0;
 			for(String unit : units) {
-				if(unit.equals("inch")) {
-					result = cm / 2.54;
-					out.print(result);
-				} else if(unit.equals("yard")) {
-					result = cm / 91.44;
-					out.print(result);
-				} else if(unit.equals("feet")) {
-					result = cm / 30.48;
-					out.print(result);
-				} else if(unit.equals("meter")) {
-					result = cm / 100.0;
-					out.print(result);
+				if(unit.equals("in")) {
+					div = 2.54;
+				} else if(unit.equals("yd")) {
+					div = 91.44;
+				} else if(unit.equals("ft")) {
+					div = 30.48;
+				} else if(unit.equals("m")) {
+					div = 100.0;
 				}
-				out.print("<h4>" + result + "</h4>");
+				out.print("<h4>" + (cm / div) + " " + unit + "</h4>");
 			}
 		%>
 	</div>
