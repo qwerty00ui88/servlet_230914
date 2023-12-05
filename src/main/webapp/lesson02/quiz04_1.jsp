@@ -12,29 +12,33 @@
 </head>
 <body>
 	<%
-		int cm = Integer.valueOf(request.getParameter("cm"));
-		String[] units = request.getParameterValues("unit");
+		int length = Integer.valueOf(request.getParameter("length"));
+		String[] types = request.getParameterValues("type");
 	%>
 
 	<div class="container">
 		<h1>길이 변환 결과</h1>
-		<h4><%= cm %>cm</h4>
+		<h3><%= length %>cm</h3>
 		<hr>
+		<h2>
 		<%
-			double div = 0;
-			for(String unit : units) {
-				if(unit.equals("in")) {
-					div = 2.54;
-				} else if(unit.equals("yd")) {
-					div = 91.44;
-				} else if(unit.equals("ft")) {
-					div = 30.48;
-				} else if(unit.equals("m")) {
-					div = 100.0;
+			for(String type : types) {
+				if(type.equals("inch")) {
+					double inch = 0.393701 * length;
+					out.print(inch + " in<br>");
+				} else if(type.equals("yard")) {
+					double yard = 0.0109361 * length;
+					out.print(yard + " yd<br>");
+				} else if(type.equals("feet")) {
+					double inch = 0.0328084 * length;
+					out.print(inch + " ft<br>");
+				} else if(type.equals("meter")) {
+					double inch = 0.01 * length;
+					out.print(inch + " m<br>");
 				}
-				out.print("<h4>" + (cm / div) + " " + unit + "</h4>");
 			}
 		%>
+		</h2>
 	</div>
 </body>
 </html>
