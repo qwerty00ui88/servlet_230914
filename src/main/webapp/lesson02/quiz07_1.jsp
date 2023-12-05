@@ -47,6 +47,9 @@
 			<%
 				for(Map<String, Object> item : list) {
 					if(keyword.equals(item.get("menu"))) {
+						if(starPointFilter != null && (double)item.get("point") <= 4.0) {
+							continue;
+						}
 			%>
 				<tr>
 					<td><%= item.get("menu") %></td>
