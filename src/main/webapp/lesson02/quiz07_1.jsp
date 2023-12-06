@@ -31,6 +31,7 @@
     	
     	String keyword = request.getParameter("keyword");
     	String starPointFilter = request.getParameter("starPointFilter");
+		boolean exclude = starPointFilter != null;
 	%>
 	
 	<div class="container">
@@ -47,8 +48,9 @@
 			<%
 				for(Map<String, Object> item : list) {
 					if(keyword.equals(item.get("menu"))) {
-						if(starPointFilter != null && (double)item.get("point") <= 4.0) {
-							continue;
+						// skip 조건: 체크가 되어있고 스킵되어야하는 조건이면 continue로 넘김
+						if(exclude && (double)item.get("point") <= 4) {
+							continue; // 아래 코드 수행하지 않고 넘김
 						}
 			%>
 				<tr>
