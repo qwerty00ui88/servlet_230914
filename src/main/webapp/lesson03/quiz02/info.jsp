@@ -82,46 +82,56 @@ musicInfo.put("composer", "아이유,이종훈,이채규");
 musicInfo.put("lyricist", "아이유");
 musicList.add(musicInfo);
 
-int id = Integer.valueOf(request.getParameter("id"));
 Map<String, Object> music = new HashMap<>();
-for(Map<String, Object> item : musicList) {
-	if(id == (int)item.get("id")) {
+for (Map<String, Object> item : musicList) {
+	if ((request.getParameter("id") != null && (String.valueOf(item.get("id"))).equals(request.getParameter("id")))
+	|| (request.getParameter("search") != null && item.get("title").equals(request.getParameter("search")))) {
 		music = item;
 		break;
 	}
+
 }
 %>
-<%-- 아티스트 정보 영역 --%>
-<div class="d-flex border border-success p-2">
-	<img alt="thumbnail" src="<%= music.get("thumbnail") %>" width="200" class="mr-3">
+
+<%-- 곡 정보 영역 --%>
+<h4>곡 정보</h4>
+<div class="d-flex border border-success p-3 mb-3">
+	<div class="mr-4">
+		<img alt="노래커버" src="<%=music.get("thumbnail")%>" width="200">
+	</div>
 	<div>
-		<h4><%= music.get("title") %></h4>
+		<div class="display-4"><%=music.get("title")%></div>
+		<div class="text-success font-weight-bold mb-2"><%=music.get("singer")%></div>
+		<table class="text-secondary">
+			<tbody>
+				<tr>
+					<td>앨범</td>
+					<td><%=music.get("album")%></td>
+				</tr>
+				<tr>
+					<td class="pr-3">재생시간</td>
+					<td>
+						<%
+						int hour = (int) music.get("time") / 60;
+						int min = (int) music.get("time") % 60;
+						%> <%=hour + " : " + min%>
+					</td>
+				</tr>
+				<tr>
+					<td>작곡가</td>
+					<td><%=music.get("composer")%></td>
+				</tr>
+				<tr>
+					<td>작사가</td>
+					<td><%=music.get("lyricist")%></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>
 
-<%-- 곡 목록 영역 --%>
-<h4>곡 목록</h4>
-<table class="table text-center">
-	<thead>
-		<tr>
-			<th>no</th>
-			<th>제목</th>
-			<th>앨범</th>
-		</tr>
-	</thead>
-	<tbody>
-		<%
-		for (Map<String, Object> item : musicList) {
-		%>
-		<tr>
-			<th><%=item.get("id")%></th>
-			<th><a
-				href="/lesson03/quiz02/layout_1.jsp?id=<%=item.get("id")%>>"
-				class="nav-link"><%=item.get("title")%></a></th>
-			<th><%=item.get("album")%></th>
-		</tr>
-		<%
-		}
-		%>
-	</tbody>
-</table>
+<%-- 가사 영역 --%>
+<h4>가사</h4>
+<hr>
+<div>가사 정보 없음</div>
+

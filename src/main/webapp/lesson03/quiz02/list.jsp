@@ -109,11 +109,11 @@ musicList.add(musicInfo);
 		for (Map<String, Object> music : musicList) {
 		%>
 		<tr>
-			<td><%=music.get("id")%></td>
+			<td class="align-middle"><%=music.get("id")%></td>
 			<td><a
 				href="/lesson03/quiz02/info_layout.jsp?id=<%=music.get("id")%>"
 				class="nav-link"><%=music.get("title")%></a></td>
-			<td><%=music.get("album")%></td>
+			<td class="align-middle"><%=music.get("album")%></td>
 		</tr>
 		<%
 		}
