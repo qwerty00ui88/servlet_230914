@@ -85,7 +85,7 @@ musicList.add(musicInfo);
 <%-- 아티스트 정보 영역 --%>
 <div class="d-flex border border-success p-3 mb-3">
 	<div class="mr-4">
-		<img alt="가수이미지" src="<%=artistInfo.get("photo")%>" width="200">
+		<img alt="가수이미지" src="<%=artistInfo.get("photo")%>" width="150">
 	</div>
 	<div>
 		<h3><%=artistInfo.get("name")%></h3>
