@@ -24,16 +24,16 @@ public class Lesson04Quiz01 extends HttpServlet {
 		MysqlService ms = MysqlService.getInstance();
 		ms.connect();
 		
-		// DB 인서트
-		String insertQuery = "insert into `real_estate`"
-				+ "(`realtorId`, `address`, `area`, `type`, `price`)"
-				+ "values"
-				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', 1500000);";
-		try {
-			ms.update(insertQuery);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		// DB 인서트
+//		String insertQuery = "insert into `real_estate`"
+//				+ "(`realtorId`, `address`, `area`, `type`, `price`)"
+//				+ "values"
+//				+ "(3, '헤라펠리스 101동 5305호', 350, '매매', 1500000);";
+//		try {
+//			ms.updLate(insertQuery);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		
 		// DB 셀렉트 & 출력
 		PrintWriter out = response.getWriter();

@@ -6,7 +6,7 @@
 			class="text-success text-decoration-none">Melong</a>
 	</h3>
 </div>
-<div class="col10">
+<div class="col-10">
 	<form method="get" action="/lesson03/quiz02/info_layout.jsp">
 		<div class="input-group">
 			<input type="text" class="form-control col-6" name="search">

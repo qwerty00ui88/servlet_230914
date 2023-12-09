@@ -24,16 +24,16 @@ public class Lesson04Ex01 extends HttpServlet {
 		MysqlService ms = MysqlService.getInstance();
 		ms.connect(); // 실질적인 연결(꼭 넣어야 함!!!)
 
-		// DB 인서트
-		String insertQuery = "insert into `used_goods`"
-				+ "(`sellerId`, `title`, `description`, `price`)"
-				+ "values"
-				+ "(1, '고양이 간식 팝니다', '까다로워서 잘 안먹어요ㅠ', 2000)";
-		try {
-			ms.update(insertQuery);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+//		// DB 인서트
+//		String insertQuery = "insert into `used_goods`"
+//				+ "(`sellerId`, `title`, `description`, `price`)"
+//				+ "values"
+//				+ "(1, '고양이 간식 팝니다', '까다로워서 잘 안먹어요ㅠ', 2000)";
+//		try {
+//			ms.update(insertQuery);
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
 		
 		// DB 셀렉트 & 출력
 		PrintWriter out = response.getWriter();
