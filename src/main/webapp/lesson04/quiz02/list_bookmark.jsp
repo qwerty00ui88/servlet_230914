@@ -28,7 +28,7 @@
 		ms.connect();
 		
 		// select DB
-		String query = "select * from `bookmark`";
+		String query = "select * from `bookmark` order by `id` desc";
 		ResultSet result = ms.select(query);
 	%>
 
@@ -47,7 +47,7 @@
 				<tr>
 					<td><%= result.getString("name") %></td>
 					<td><a href="<%= result.getString("url") %>"><%= result.getString("url") %></a></td>
-					<td><a href="/lesson04/quiz02_delete?id=<%= result.getString("id") %>">삭제</a></td>
+					<td><a href="/lesson04/quiz02_delete?id=<%= result.getInt("id") %>" class="btn btn-danger">삭제</a></td>
 				</tr>
 				<%
 					}

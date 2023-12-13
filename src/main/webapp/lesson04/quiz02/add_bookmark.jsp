@@ -24,9 +24,9 @@
 		<h2 class="font-weight-bold">즐겨찾기 추가</h2>
 		<form method="post" action="/lesson04/quiz02_insert" class="d-flex flex-column">
 			<label for="name">사이트명: </label>
-			<input id="name" type="text" name="name" class="form-control col-5">
+			<input id="name" type="text" name="name" class="form-control col-4">
 			<label for="url">사이트 주소: </label>
-			<input id="url" type="text" name="url" class="form-control col-10 mb-4">
+			<input id="url" type="text" name="url" class="form-control col-8 mb-4">
 			<button class="btn btn-success col-2">추가</button>
 		</form>
 	</div>

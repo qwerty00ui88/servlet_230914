@@ -38,6 +38,6 @@ public class InsertQuiz02 extends HttpServlet {
 		ms.disconnect();
 		
 		// redirect
-		response.sendRedirect("/lesson04/quiz02/quiz02_1.jsp");
+		response.sendRedirect("/lesson04/quiz02/list_bookmark.jsp");
 	}
 }
